@@ -114,7 +114,7 @@ function drawBricks() {
 function drawScore() {
      ctx.font = "24px Arial";
      ctx.fillStyle = "white";
-     ctx.fillText("score: " + score, 8, 35); //fillText(String,x,y)
+     ctx.fillText("score: " + score, 25, 35); //fillText(String,x,y)
  }
  function drawHighScore() {
      ctx.font = "24px Arial";
