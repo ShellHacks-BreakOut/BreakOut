@@ -14,11 +14,14 @@ var brickRowCount = 5;
 var brickColumnCount = 8;
 var brickWidth = 100;
 var brickHeight = 28;
-var brickOffsetLeft = 32;
-var brickOffsetTop = 40;
+var brickOffsetLeft = 22;
+var brickOffsetTop = 60;
 var brickPadding = 16;
 var score =0;
+var highscore=0;
+highscore=localStorage.getItem('Highscore');
 let gameOver = new Audio();
+var start=0;
 gameOver.src = "others/life_lost.mp3";
 const BRICK_HIT = new Audio();
 BRICK_HIT.src = "others/brick_hit.mp3";
@@ -62,12 +65,16 @@ function collisionDetection() {
                }
           }
      }
+     if(score>highscore){
+          highscore=score;
+     }
+     localStorage.setItem('Highscore',highscore);
 }
 
 function drawBall() {
      ctx.beginPath();
      ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-     ctx.fillStyle = "red";
+     ctx.fillStyle = "white";
      ctx.fill();
      ctx.closePath();
 }
@@ -89,18 +96,31 @@ function drawBricks() {
                     bricks[c][r].y = bricksY;
                     ctx.beginPath();
                     ctx.rect(bricksX, bricksY, brickWidth, brickHeight);
-                    ctx.fillStyle = "blue";
+                    if(r==0){
+                    ctx.fillStyle = "red";
+                    }else if(r==1 || r==2){
+                         ctx.fillStyle = "orange"; 
+                    }else{
+                         ctx.fillStyle = "yellow";
+                    }
                     ctx.fill();
                     ctx.closePath();
                }
+
           }
      }
 }
 
 function drawScore() {
-     ctx.font = "18px Arial";
-     ctx.fillStyle = "brown";
-     ctx.fillText("score: " + score, 8, 20); //fillText(String,x,y)
+     ctx.font = "24px Arial";
+     ctx.fillStyle = "white";
+     ctx.fillText("score: " + score, 8, 35); //fillText(String,x,y)
+ }
+ function drawHighScore() {
+     ctx.font = "24px Arial";
+     ctx.fillStyle = "white";
+     ctx.fillText("Highscore: " + highscore, 780, 35); //fillText(String,x,y)
+     
  }
  
 
@@ -115,6 +135,7 @@ function draw() {
      drawBall();
      drawPaddle();
      drawScore();
+     drawHighScore();
      collisionDetection();
    
 
@@ -175,7 +196,11 @@ function mouseMoveHandler(e){
           paddleX = relativeX - paddleWidth/2;
      }
 }
-
+var playgame=document.getElementsByClassName('Game');
+function setvalue(){
+     start=1;
+}
+playgame.addEventListener("click",setvalue());
 function playGame(){
     game = setInterval(draw,2);
 }
