@@ -140,10 +140,10 @@ function draw() {
    
 
      if (rightPressed && paddleX < canvas.width - paddleWidth) {
-          paddleX += 7;
+          paddleX += 4;
      }
      else if (leftPressed && paddleX > 0) {
-          paddleX -= 7;
+          paddleX -= 4;
      }
 
      if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -202,7 +202,7 @@ function setvalue(){
 }
 playgame.addEventListener("click",setvalue());
 function playGame(){
-    game = setInterval(draw,2);
+    game = setInterval(draw,4);
 }
 
 

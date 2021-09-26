@@ -4,7 +4,7 @@ body{
 
 #myCanvas{
     /* background-color: rgb(40, 43, 44); */
-    margin: 125px 0px 0px 485px;
+    margin: 5px 0px 300px 300px;
 }
 
 .Game{
@@ -15,7 +15,7 @@ body{
     font-size: 35px;
     /* bottom: -14%; */
     left: 45%;
-    top: 85%;
+    top: 90%;
     border-radius: 4px;
     background:none;
     box-shadow:0px 2px 2px rgb(102, 98, 98);
