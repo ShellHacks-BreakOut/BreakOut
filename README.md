@@ -13,3 +13,4 @@ BreakOut Game using Canvas, JavaScript, HTML and CSS
 
 
 
+![](https://user-images.githubusercontent.com/83106116/134817772-c2cedbf9-d4ac-4a1d-941c-70567ea9f81a.gif)
